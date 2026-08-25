@@ -1,4 +1,4 @@
-import { Action, ActionPanel, Clipboard, Detail, Icon, List } from "@raycast/api";
+import { Action, ActionPanel, Clipboard, Detail, Icon, LaunchType, List, launchCommand } from "@raycast/api";
 import { usePromise } from "@raycast/utils";
 import { IpReport } from "./ip-report";
 import { extractIp } from "./lib/ip";
@@ -19,10 +19,10 @@ export default function Command() {
           description="Copy an IPv4 or IPv6 address, then run this command again."
           actions={
             <ActionPanel>
-              <Action.Open
+              <Action
                 title="Open Check IP Command"
                 icon={Icon.Shield}
-                target="raycast://extensions/belli/abuseipdb/check-ip"
+                onAction={() => launchCommand({ name: "check-ip", type: LaunchType.UserInitiated })}
               />
             </ActionPanel>
           }

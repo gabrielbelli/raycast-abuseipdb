@@ -179,12 +179,12 @@ export function IpReport({ ip }: { ip: string }) {
               <Action.CopyToClipboard
                 title="Copy Report as Markdown"
                 content={buildMarkdown(data, windowInDays)}
-                shortcut={Keyboard.Shortcut.Common.Copy}
+                shortcut={{ modifiers: ["cmd", "shift"], key: "m" }}
               />
               <Action.CopyToClipboard
                 title="Copy Raw JSON"
                 content={JSON.stringify(data, null, 2)}
-                shortcut={Keyboard.Shortcut.Common.CopyName}
+                shortcut={{ modifiers: ["cmd", "shift"], key: "j" }}
               />
             </>
           ) : null}
